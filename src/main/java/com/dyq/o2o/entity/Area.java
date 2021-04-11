@@ -1,4 +1,4 @@
-package com.xd.dyq;
+package com.dyq.o2o.entity;
 
 import javax.xml.crypto.Data;
 

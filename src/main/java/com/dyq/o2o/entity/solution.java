@@ -1,4 +1,4 @@
-package com.xd.dyq;
+package com.dyq.o2o.entity;
 
 public class solution{
     public static  void  main(String [] args){
