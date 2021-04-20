@@ -122,13 +122,14 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.37</version>
+      <version>8.0.24</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
     <dependency>
-      <groupId>c3p0</groupId>
+      <groupId>com.mchange</groupId>
       <artifactId>c3p0</artifactId>
-      <version>0.9.1.2</version>
+      <version>0.9.5.2</version>
     </dependency>
 
   </dependencies>

@@ -16,8 +16,8 @@
         <property name="user" value="${jdbc.username}"/>
 
         <!-- c3p0 about -->
-        <property name="maxPoolSize" value="30"/>
-        <property name="minPoolSize" value="10"/>
+        <property name="maxPoolSize" value="10"/>
+        <property name="minPoolSize" value="5"/>
         <property name="autoCommitOnClose" value="false"/>
         <property name="checkoutTimeout" value="10000"/>
         <property name="acquireRetryAttempts" value="2"/>
