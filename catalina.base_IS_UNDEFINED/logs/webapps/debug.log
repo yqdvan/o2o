@@ -1,0 +1,6 @@
+2021-04-28 00:10:00.650[main]DEBUGcom.dyq.o2o.dao.ShopDao.insertShop - ==>  Preparing: INSERT INTO tb_shop(owner_id,area_id,shop_category_id,shop_name,shop_desc,shop_addr, phone,shop_img,priority,create_time,last_edit_time,enable_status,advice) VALUES (?,?,?,?, ?,?,?,?,?, ?,?,?,?) 
+2021-04-28 00:10:00.697[main]DEBUGcom.dyq.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 2(Integer), 1(Long), 测试店铺3(String), test desc(String), test addr(String), test123456(String), test img(String), 66(Integer), 2021-04-28 00:10:00.239(Timestamp), null, 1(Integer), in checking test!(String)
+2021-04-28 00:10:00.702[main]DEBUGcom.dyq.o2o.dao.ShopDao.insertShop - <==    Updates: 1
+2021-04-28 00:13:03.183[main]DEBUGcom.dyq.o2o.dao.ShopDao.insertShop - ==>  Preparing: INSERT INTO tb_shop(owner_id,area_id,shop_category_id,shop_name,shop_desc,shop_addr, phone,shop_img,priority,create_time,last_edit_time,enable_status,advice) VALUES (?,?,?,?, ?,?,?,?,?, ?,?,?,?) 
+2021-04-28 00:13:03.229[main]DEBUGcom.dyq.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 2(Integer), 1(Long), 测试店铺4(String), test desc(String), test addr(String), test123456(String), test img(String), 66(Integer), 2021-04-28 00:13:02.779(Timestamp), null, 1(Integer), in checking test!(String)
+2021-04-28 00:13:03.233[main]DEBUGcom.dyq.o2o.dao.ShopDao.insertShop - <==    Updates: 1

@@ -3,7 +3,7 @@ package com.dyq.o2o.entity;
 import java.util.Date;
 
 public class ShopCategory{
-    private Long shopCategory;
+    private Long shopCategoryId;
     private String shopCategoryName;
     private String shopCategoryDesc;
     private String shopCategoryImg;
@@ -13,11 +13,7 @@ public class ShopCategory{
     private ShopCategory parent;
 
     public Long getShopCategory() {
-        return shopCategory;
-    }
-
-    public void setShopCategory(Long shopCategory) {
-        this.shopCategory = shopCategory;
+        return shopCategoryId;
     }
 
     public String getShopCategoryName() {
@@ -74,5 +70,13 @@ public class ShopCategory{
 
     public void setParent(ShopCategory parent) {
         this.parent = parent;
+    }
+
+    public Long getShopCategoryId() {
+        return shopCategoryId;
+    }
+
+    public void setShopCategoryId(Long shopCategoryId) {
+        this.shopCategoryId = shopCategoryId;
     }
 }

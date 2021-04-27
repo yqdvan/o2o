@@ -39,9 +39,33 @@ SELECT area_id , area_name , priority , create_time , last_edit_time
 FROM tb_area
 ORDER BY priority DESC
 
-commit
+commit;
 
-exit;]]></console>
+exit;
+
+use o2o;
+insert into  tb_person_info (name,profile_img,email,gender,enable_status,user_type)
+values ('测试','testImg','testEmail',1,1,2);
+
+select * from tb_person_info;
+
+select * from tb_area;
+
+select * from tb_shop;
+
+select * from tb_shop_category;
+
+insert into tb_shop_category (shop_categoryname,shop_category_desc)
+values ('c-name','c-desc');
+
+update tb_area set area_name = '竹园' where area_id = 2;
+update tb_area set area_name = '海棠' where area_id = 1;
+
+INSERT INTO tb_shop(owner_id,area_id,shop_category_id,
+                    shop_name,shop_desc,shop_addr,phone,shop_img,priority,enable_status,advice)
+VALUES (1,2,1,'c-name2','c-desc2','c-addr2','c2-123456','c-img2',777,1,'c-adcive');
+
+alter table tb_shop drop column shop_categroy_id;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
