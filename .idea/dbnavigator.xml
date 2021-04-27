@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
-        <schema name="o2o" object-types="index, function, table, column, dataset trigger, constraint, view, procedure" />
+        <schema name="o2o" object-types="procedure, table, column, view, dataset trigger, function, constraint, index" />
       </connection>
     </loaded-nodes>
   </component>
@@ -52,6 +52,7 @@ exit;]]></console>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636" dataset="o2o.tb_area" active-filter-id="" />
+    <filter-actions connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636" dataset="o2o.tb_shop" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
