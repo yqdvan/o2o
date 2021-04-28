@@ -4,3 +4,12 @@
 2021-04-28 00:13:03.183[main]DEBUGcom.dyq.o2o.dao.ShopDao.insertShop - ==>  Preparing: INSERT INTO tb_shop(owner_id,area_id,shop_category_id,shop_name,shop_desc,shop_addr, phone,shop_img,priority,create_time,last_edit_time,enable_status,advice) VALUES (?,?,?,?, ?,?,?,?,?, ?,?,?,?) 
 2021-04-28 00:13:03.229[main]DEBUGcom.dyq.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 2(Integer), 1(Long), 测试店铺4(String), test desc(String), test addr(String), test123456(String), test img(String), 66(Integer), 2021-04-28 00:13:02.779(Timestamp), null, 1(Integer), in checking test!(String)
 2021-04-28 00:13:03.233[main]DEBUGcom.dyq.o2o.dao.ShopDao.insertShop - <==    Updates: 1
+2021-04-28 13:11:35.374[main]DEBUGcom.dyq.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, priority=?, enable_status=?, advice=?, shop_category_id=?, area_id=? where shop_id =? 
+2021-04-28 13:11:35.413[main]DEBUGcom.dyq.o2o.dao.ShopDao.updateShop - ==> Parameters: 更改店铺名字(String), test desc(String), test addr(String), test123456(String), test img(String), 66(Integer), 1(Integer), in checking test!(String), 1(Long), 2(Integer), 8(Long)
+2021-04-28 13:11:35.418[main]DEBUGcom.dyq.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2021-04-28 13:16:08.791[main]DEBUGcom.dyq.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=? where shop_id =? 
+2021-04-28 13:16:08.824[main]DEBUGcom.dyq.o2o.dao.ShopDao.updateShop - ==> Parameters: 更改店铺名字2(String), 描述一下desc(String), 更新的地址addr(String), 8(Long)
+2021-04-28 13:16:08.829[main]DEBUGcom.dyq.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2021-04-28 13:17:00.308[main]DEBUGcom.dyq.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, last_edit_time=? where shop_id =? 
+2021-04-28 13:17:00.352[main]DEBUGcom.dyq.o2o.dao.ShopDao.updateShop - ==> Parameters: 更改店铺名字2(String), 描述一下desc(String), 更新的地址addr(String), 2021-04-28 13:16:59.896(Timestamp), 8(Long)
+2021-04-28 13:17:00.356[main]DEBUGcom.dyq.o2o.dao.ShopDao.updateShop - <==    Updates: 1

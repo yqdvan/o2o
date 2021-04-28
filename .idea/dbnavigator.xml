@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
-        <schema name="o2o" object-types="procedure, table, column, view, dataset trigger, function, constraint, index" />
+        <schema name="o2o" object-types="column, function, table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -51,6 +51,7 @@ select * from tb_person_info;
 
 select * from tb_area;
 
+commit;
 select * from tb_shop;
 
 select * from tb_shop_category;

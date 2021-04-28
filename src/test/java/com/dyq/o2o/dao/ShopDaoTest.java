@@ -44,4 +44,20 @@ public class ShopDaoTest extends BaseTest{
         assertEquals(1,effectedNum);
         System.out.println("##dyq-- : " + shop.getShopId());
     }
+
+    @Test
+    public void testUpdateShop(){
+        Shop shop = new Shop();
+        shop.setShopId(8L);
+
+        shop.setShopName("更改店铺名字2");
+        shop.setShopDesc("描述一下desc");
+        shop.setShopAddr("更新的地址addr");
+        shop.setLastEditTime(new Date());
+
+
+        int effectedNum = shopDao.updateShop(shop);
+        assertEquals(1,effectedNum);
+        System.out.println("##dyq-- : " + shop.getShopId());
+    }
 }
