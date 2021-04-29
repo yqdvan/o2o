@@ -24,11 +24,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
-        <schema name="o2o" object-types="column, function, table" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
