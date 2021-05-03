@@ -14,8 +14,10 @@
     <mvc:resources mapping="/resources/**" location="/resources/"/>
     <mvc:default-servlet-handler/>
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/html"/>
+    <!-- 3.定义视图解析器 -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/html/"/>
         <property name="suffix" value=".html"/>
     </bean>
 
