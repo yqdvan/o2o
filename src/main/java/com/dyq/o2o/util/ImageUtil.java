@@ -65,7 +65,7 @@ public class ImageUtil{
         return originalFileName;
     }
 
-    private static String getRandomFileName() {
+    public static String getRandomFileName() {
         // get random 5
         int rannum = r.nextInt(89999) + 10000;
         String nowTimeStr = sDataFormat.format(new Date());
