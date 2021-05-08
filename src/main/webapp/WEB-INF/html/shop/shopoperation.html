@@ -13,10 +13,10 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- Google Web Fonts -->
-
-    <link rel="stylesheet" href="css/sm.min.css">
-    <link rel="stylesheet" href="css/sm-extend.min.css">
-
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" href="../resources/css/sm.min.css">
+    <link rel="stylesheet" href="../resources/css/sm-extend.min.css">
     <link rel="apple-touch-icon-precomposed" href="/assets/img/apple-touch-icon-114x114.png">
     <script>
         //ga
@@ -31,7 +31,7 @@
                 <span class="icon icon-left"></span>
                 返回
             </a>
-            <h1 class="title">商店信息</h1>
+            <h1 class="title">商店信息web-inf</h1>
         </header>
         <div class="content">
             <div class="list-block">
@@ -116,22 +116,42 @@
                         </div>
                     </li>
                     <!--验证吗 kaptcha -->
-
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label">验证码</div>
+                                <input type="text" id="j_kaptcha" placeholder="验证码">
+                                <div class="item-input">
+                                    <img id="captcha_img" title="点击更管" alt="点击更管"
+                                         onclick="changeVerifyCode(this)" src="../Kaptcha"/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="content-block">
                 <div class="row">
-                    <div class="col-50"><a href="#" class="button button-big button-fill button-danger">返回</a></div>
-                    <div class="col-50"><a href="#" class="button button-big button-fill button-success" id="submit">提交</a></div>
+                    <div class="col-50"><a href="#"
+                                           class="button button-big button-fill button-danger">返回</a></div>
+                    <div class="col-50"><a href="#"
+                                           class="button button-big button-fill button-success" id="submit">提交</a></div>
                 </div>
             </div>
         </div>
     </div>
 
 </div>
-<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-<script src="../js/sm.js"></script>
-<script src="../js/sm-extend.js"></script>
-<script type="text/javascript' src=" src="../resources/js/shop/shopoperation.js" charset="utf-8"></script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/sm.js"></script>
+<script src="../resources/js/sm-extend.js"></script>
+<script type="text/javascript" src='../resources/js/shop/shopoperation.js'
+        charset='utf-8'></script>
+<script type="text/javascript" src='../resources/js/common/common.js'
+        charset='utf-8'></script>
+
+<script>
+    $.toast('html is running!!!');
+</script>
 </body>
 </html>

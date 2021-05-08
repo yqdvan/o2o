@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.Date;
 
 @Service
@@ -22,7 +23,7 @@ public class ShopServiceImpl implements ShopService{
 
     @Override
     @Transactional
-    public ShopExecution addShop(Shop shop, File shopImg) {
+    public ShopExecution addShop(Shop shop, InputStream shopImgIputStream,String fileName)throws ShopOperationException {
         // null value check
         if(shop == null){
             return  new ShopExecution(ShopStateEnum.NULL_SHOP);
@@ -40,10 +41,10 @@ public class ShopServiceImpl implements ShopService{
             if(effectiveNum <= 0){
                 throw new ShopOperationException("店铺创建失败!");
             }else{
-                if (shopImg!=null){
+                if (shopImgIputStream!=null){
                     // save img
                     try{
-                        addShopImg(shop,shopImg);
+                        addShopImg(shop,shopImgIputStream,fileName);
                     }catch (Exception e){
                         throw new ShopOperationException("add shop img 失败" + e.getMessage());
                     }
@@ -61,10 +62,10 @@ public class ShopServiceImpl implements ShopService{
         return new ShopExecution(ShopStateEnum.CHECK,shop);
     }
 
-    private void addShopImg(Shop shop, File shopImg) {
+    private void addShopImg(Shop shop, InputStream shopImgInputStream,String fileName) {
         // get shop img dir relative addr
         String dest = PathUtil.getShopImagePath(shop.getShopId());
-        String shopImgAddr = ImageUtil.generateThumbnail(shopImg,dest);
+        String shopImgAddr = ImageUtil.generateThumbnail(shopImgInputStream,fileName,dest);
         System.out.println("dyq-debug :"+"shopImgAddr: " + shopImgAddr);
         shop.setShopImg(shopImgAddr);
     }

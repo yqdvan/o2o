@@ -24,7 +24,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
+        <schema name="o2o" object-types="view, table, function, column" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
@@ -62,7 +66,30 @@ INSERT INTO tb_shop(owner_id,area_id,shop_category_id,
                     shop_name,shop_desc,shop_addr,phone,shop_img,priority,enable_status,advice)
 VALUES (1,2,1,'c-name2','c-desc2','c-addr2','c2-123456','c-img2',777,1,'c-adcive');
 
-alter table tb_shop drop column shop_categroy_id;]]></console>
+alter table tb_shop drop column shop_categroy_id;
+
+alter table tb_shop_category change column shop_categroy_name shop_category_name varchar(30);
+
+
+SELECT
+shop_category_id,
+shop_category_name,
+shop_category_desc,
+shop_category_img,
+priority
+last_edit_time,
+parent_id
+FROM
+tb_shop_category
+
+order by
+priority DESC
+
+insert into  tb_shop_category (shop_category_name,priority)
+values ('小魔仙',100)
+
+update tb_shop_category set parent_id = 1 where shop_category_id=4;
+commit;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

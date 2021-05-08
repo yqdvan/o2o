@@ -9,6 +9,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,9 +20,9 @@ public class ImageUtil{
     private static final SimpleDateFormat sDataFormat = new SimpleDateFormat("yyyyMMddHHHHmmss");
     private static final Random r = new Random();
 
-    public static String generateThumbnail(File thumbnail , String  targetAddr){
+    public static String generateThumbnail(InputStream thumbnail , String fileName, String  targetAddr){
         String realFileName = getRandomFileName();
-        String extension = getFileExtension(thumbnail);
+        String extension = getFileExtension(fileName);
         makeDirPath(targetAddr);
         String relativeAddr = targetAddr + realFileName + extension;
         System.out.println("dyq-debug :"+"relativeAddr: " + relativeAddr);
@@ -57,12 +58,11 @@ public class ImageUtil{
 
     /***
      * 获取输入文件流的扩展名
-     * @param cFile
+     * @param fileName
      * @return
      */
-    private static String getFileExtension(File cFile) {
-        String originalFileName = cFile.getName();
-        return originalFileName;
+    private static String getFileExtension(String  fileName) {
+        return fileName.substring(fileName.lastIndexOf("."));
     }
 
     public static String getRandomFileName() {
