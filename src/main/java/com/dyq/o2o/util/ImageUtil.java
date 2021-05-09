@@ -80,4 +80,17 @@ public class ImageUtil{
 
     }
 
+    public static void deleteFileOrPath(String storePath){
+        File fileOrPath = new File(PathUtil.getImgBasePath() + storePath);
+        if(fileOrPath.exists()) {
+            if (fileOrPath.isDirectory()) {
+                File[] files = fileOrPath.listFiles();
+                for (File file : files) {
+                    file.delete();
+                }
+            }
+            fileOrPath.delete();
+        }
+    }
+
 }

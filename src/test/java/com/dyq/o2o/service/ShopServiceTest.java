@@ -7,6 +7,7 @@ import com.dyq.o2o.entity.Area;
 import com.dyq.o2o.entity.PersonInfo;
 import com.dyq.o2o.entity.Shop;
 import com.dyq.o2o.entity.ShopCategory;
+import com.dyq.o2o.exception.ShopOperationException;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -50,6 +51,18 @@ public class ShopServiceTest extends BaseTest{
         ShopExecution se = shopService.addShop(shop,inputStream,shopImg.getName());
         assertEquals(ShopStateEnum.CHECK.getState(),se.getState());
 
+    }
+
+    @Test
+    public void testModifyShop() throws ShopOperationException ,FileNotFoundException {
+        Shop shop = new Shop();
+        shop.setShopId(24L);
+        shop.setShopName("水果铺子V2改");
+        shop.setPhone("1320167753");
+        File shopImg = new File("/home/yqduan/Pictures/Wallpapers/abc-123.jpg");
+
+        ShopExecution shopExecution = shopService.modifyShop(shop, new FileInputStream(shopImg), shopImg.getName());
+        System.out.println("dyq test modify shop :"+shopExecution.getShop().getShopName());
     }
 
 }

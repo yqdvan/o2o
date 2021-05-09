@@ -11,6 +11,7 @@ import com.dyq.o2o.util.PathUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.InputStream;
@@ -60,6 +61,34 @@ public class ShopServiceImpl implements ShopService{
             throw new ShopOperationException("addShop error: "+e.getMessage());
         }
         return new ShopExecution(ShopStateEnum.CHECK,shop);
+    }
+
+    @Override
+    public ShopExecution modifyShop(Shop shop, InputStream shopImgIputStream,String fileName) throws ShopOperationException {
+        if(shop == null || shop.getShopId() == null){
+            return new ShopExecution(ShopStateEnum.NULL_SHOP);
+        }else {
+            try {
+                if (shopImgIputStream != null && !fileName.equals("")) {
+                    Shop shopTemp = shopDao.queryByShopId(shop.getShopId());
+                    if (shopTemp.getShopImg() != null) {
+                        ImageUtil.deleteFileOrPath(shopTemp.getShopImg());
+                    }
+                    addShopImg(shop, shopImgIputStream, fileName);
+                }
+
+                shop.setLastEditTime(new Date());
+                int effectiveNum = shopDao.updateShop(shop);
+                if (effectiveNum <= 0) {
+                    return new ShopExecution(ShopStateEnum.INNER_ERROR);
+                } else {
+                    shop = shopDao.queryByShopId(shop.getShopId());
+                    return new ShopExecution(ShopStateEnum.SUCCESS, shop);
+                }
+            } catch (Exception e) {
+                throw new ShopOperationException("modify error! " + e.getMessage());
+            }
+        }
     }
 
     private void addShopImg(Shop shop, InputStream shopImgInputStream,String fileName) {

@@ -60,4 +60,11 @@ public class ShopDaoTest extends BaseTest{
         assertEquals(1,effectedNum);
         System.out.println("##dyq-- : " + shop.getShopId());
     }
+    @Test
+    public void testQueryByShopId(){
+        long shopId = 24;
+        Shop shop = shopDao.queryByShopId(shopId);
+        System.out.println("areaId:" + shop.getArea().getAreaId());
+        System.out.println("areaName:" + shop.getArea().getAreaName());
+    }
 }
