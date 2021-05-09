@@ -9,6 +9,7 @@ import com.dyq.o2o.entity.ShopCategory;
 import com.dyq.o2o.service.AreaService;
 import com.dyq.o2o.service.ShopCategoryService;
 import com.dyq.o2o.service.ShopService;
+import com.dyq.o2o.util.CodeUtil;
 import com.dyq.o2o.util.HttpServletRequestUtil;
 import com.dyq.o2o.util.ImageUtil;
 import com.dyq.o2o.util.PathUtil;
@@ -61,7 +62,14 @@ public class ShopManagementController{
     @RequestMapping(value = "/registershop",method = RequestMethod.POST)
     @ResponseBody
     private Map<String,Object> registerShop(HttpServletRequest request){
+        System.out.println("dyq debug registerShop is running!");
         Map<String, Object> modelMap = new HashMap<String, Object>();
+        // 校验验证码
+        if (!CodeUtil.checkVerifyCode(request)) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "OperationStatusEnum.VERIFYCODE_ERROR.getStateInfo()");
+            return modelMap;
+        }
         // 1.receive arg , include shop inf img
         ObjectMapper mapper = new ObjectMapper();
         Shop shop = null;
