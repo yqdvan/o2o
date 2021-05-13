@@ -23,6 +23,16 @@ public class ShopServiceImpl implements ShopService{
     ShopDao shopDao;
 
     @Override
+    public Shop getByShopId(long shopId) {
+        if(shopId < 0){
+            return  null;
+        }else {
+            Shop shop = shopDao.queryByShopId(shopId);
+            return shop;
+        }
+    }
+
+    @Override
     @Transactional
     public ShopExecution addShop(Shop shop, InputStream shopImgIputStream,String fileName)throws ShopOperationException {
         // null value check

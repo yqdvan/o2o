@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
-        <schema name="o2o" object-types="view, function, column, table" />
+        <schema name="o2o" object-types="function, table, column, view" />
       </connection>
     </loaded-nodes>
   </component>

@@ -40,6 +40,104 @@ public class ShopManagementController{
     @Autowired
     private AreaService areaService;
 
+
+    @RequestMapping(value = "/modifyshop",method = RequestMethod.POST)
+    @ResponseBody
+    private Map<String,Object> modifyShop(HttpServletRequest request){
+        System.out.println("dyq debug registerShop is running!");
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // 校验验证码
+        if (!CodeUtil.checkVerifyCode(request)) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "OperationStatusEnum.VERIFYCODE_ERROR.getStateInfo()");
+            return modelMap;
+        }
+        // 1.receive arg , include shop inf img
+        ObjectMapper mapper = new ObjectMapper();
+        Shop shop = null;
+        String shopStr = HttpServletRequestUtil.getString(request, "shopStr");
+        try{
+            shop = mapper.readValue(shopStr, Shop.class);
+        } catch (Exception e) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", e.toString());
+            return modelMap;
+        }
+        CommonsMultipartFile shopImg = null;
+        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(
+                request.getSession().getServletContext());
+        if(commonsMultipartResolver.isMultipart(request)){
+            MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+            shopImg = (CommonsMultipartFile) multipartHttpServletRequest.getFile("shopImg");
+        }
+
+        // 2.edit shop
+        if(shop!=null && shop.getShopId()!=null){
+            // session todo
+            PersonInfo owner = (PersonInfo)request.getSession().getAttribute("user");
+            shop.setOwner(owner);
+            ShopExecution se = null;
+            try {
+                if(shopImg == null){
+                    se = shopService.modifyShop(shop,null,null);
+                }else {
+                    se = shopService.modifyShop(shop,shopImg.getInputStream(),shopImg.getOriginalFilename());
+                }
+                List<Shop> shopList = (List<Shop>) request.getSession().getAttribute("shopList");
+                if(shopList == null || shopList.size()==0){
+                    shopList = new ArrayList<Shop>();
+                }
+
+                // sesion 里有数据库的临时的关于owner的信息
+                shopList.add(se.getShop());
+                request.getSession().setAttribute("shopList",shopList);
+
+            } catch (IOException e) {
+                modelMap.put("success", false);
+                modelMap.put("errMsg", e.getMessage());
+                return modelMap;
+            }
+            if(se.getState() == ShopStateEnum.CHECK.getState()){
+                modelMap.put("success", true);
+            }else {
+                modelMap.put("success", false);
+                modelMap.put("errMsg", se.getStateInfo());
+            }
+            return modelMap;
+        }else{
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "please input shop Id!");
+            return modelMap;
+        }
+    }
+
+
+
+    @RequestMapping(value = "/getshopbyid",method = RequestMethod.GET)
+    // ResponseBody :return json
+    @ResponseBody
+    private Map<String ,Object>getShopById(HttpServletRequest request){
+        Map<String ,Object> modeMap = new HashMap<String ,Object>();
+        Long shopId = HttpServletRequestUtil.getLong(request,"shopId");
+        if(shopId > -1){
+            try{
+                Shop shop = shopService.getByShopId(shopId);
+                List<Area> areaList = areaService.getAreaList();
+                modeMap.put("shop",shop);
+                modeMap.put("areaList",areaList);
+                modeMap.put("success",true);
+            }catch (Exception e){
+                modeMap.put("success",false);
+                modeMap.put("errMsg",e.getMessage());
+            }
+
+        }else {
+            modeMap.put("success",false);
+            modeMap.put("errMsg","empty shopId");
+        }
+        return modeMap;
+    }
+
     @RequestMapping(value = "/getshopinitinfo",method = RequestMethod.GET)
     @ResponseBody
     private Map<String ,Object>getShopInitInfo(){
