@@ -4,6 +4,7 @@ $(function() {
     //alert('hello!');
 	// 从selectstring中获取店铺id
 	var shopId = getQueryString("shopId");
+    //alert(shopId);
 	// 如果shopId不为空，则为修改
 	var isEdit = shopId ? true : false;
 
@@ -56,7 +57,7 @@ $(function() {
 				// 初始设置为后台对应的区域
 				$("#area option[data-id='" + shop.area.areaId + "']")
 						.attr("selected", "selected");
-
+                //alert('set success!');
 			} else {
 				$.toast(data.errMsg);
 			}
@@ -84,60 +85,61 @@ $(function() {
 				$('#area').html(tempAreaHtml);
             }
         });
-
-        $('#submit').click(function(){
-            alert('click!');
-            var shop = {};
-            if (isEdit) {
-                shop.shopId = shopId;
-            }
-            shop.shopName = $('#shop-name').val();
-            shop.shopAddr = $('#shop-addr').val();
-            shop.phone = $('#shop-phone').val();
-            shop.shopDesc = $("#shop-desc").val();
-            // 选择id,双重否定=肯定
-            shop.shopCategory = {
-                // 这里定义的变量要和ShopCategory.shopCategoryId保持一致，否则使用databind转换会抛出异常
-                shopCategoryId : $('#shop-category').find('option').not(function() {
-                    return !this.selected;
-                }).data('id')
-            };
-
-            shop.area = {
-                areaId:$('#area').find('option').not(function(){
-                    return !this.selected;
-                }).data('id')
-            };
-
-            var shopImg = $('#shop-img')[0].files[0];
-            var formData = new FormData();
-            formData.append('shopImg',shopImg);
-            formData.append('shopStr',JSON.stringify(shop));
-            var verifyCodeActual = $('#j_kaptcha').val();
-            if (!verifyCodeActual) {
-                $.toast("请输入验证码！");
-                return;
-            } else {
-                formData.append('verifyCodeActual', verifyCodeActual);
-            }
-
-            $.ajax({
-                url:isEdit ? modifyShopUrl:registerShopUrl,
-                type : 'POST',
-                data : formData,
-                contentType : false,
-                processData : false,
-                cache : false,
-                success : function(data) {
-                    if (data.success) {
-                        $.toast("提交成功！");
-                    } else {
-                        $.toast("FK!提交失败！" + data.errMsg);
-                    }
-                    $('#captcha_img').click();
-//                    $.toast('after click captcha img!');
-                }
-            });
-        })
     }
+
+    $('#submit').click(function(){
+//            alert('click!');
+        var shop = {};
+        if (isEdit) {
+            shop.shopId = shopId;
+        }
+        shop.shopName = $('#shop-name').val();
+        shop.shopAddr = $('#shop-addr').val();
+        shop.phone = $('#shop-phone').val();
+        shop.shopDesc = $("#shop-desc").val();
+        // 选择id,双重否定=肯定
+        shop.shopCategory = {
+            // 这里定义的变量要和ShopCategory.shopCategoryId保持一致，否则使用databind转换会抛出异常
+            shopCategoryId : $('#shop-category').find('option').not(function() {
+                return !this.selected;
+            }).data('id')
+        };
+
+        shop.area = {
+            areaId:$('#area').find('option').not(function(){
+                return !this.selected;
+            }).data('id')
+        };
+
+        var shopImg = $('#shop-img')[0].files[0];
+        var formData = new FormData();
+        formData.append('shopImg',shopImg);
+        formData.append('shopStr',JSON.stringify(shop));
+        var verifyCodeActual = $('#j_kaptcha').val();
+        if (!verifyCodeActual) {
+            $.toast("请输入验证码！");
+            return;
+        } else {
+            formData.append('verifyCodeActual', verifyCodeActual);
+        }
+
+        $.ajax({
+            url:isEdit ? modifyShopUrl:registerShopUrl,
+            type : 'POST',
+            data : formData,
+            contentType : false,
+            processData : false,
+            cache : false,
+            success : function(data) {
+                if (data.success) {
+                    $.toast("提交成功！");
+                } else {
+                    $.toast(" 失败:" + data.errMsg);
+                }
+                $('#captcha_img').click();
+//                    $.toast('after click captcha img!');
+            }
+        });
+    })
+
 })

@@ -13,6 +13,7 @@ function changeVerifyCode(img) {
  * @param name:属性名
  */
 function getQueryString(name) {
+    //alert('getQuery!');
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
 	var r = window.location.search.substr(1).match(reg);
 	if (r != null) {
