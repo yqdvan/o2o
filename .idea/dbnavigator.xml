@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
-        <schema name="o2o" object-types="function, table, column, view" />
+        <schema name="o2o" object-types="constraint, dataset trigger, column, index, function, table, view, procedure" />
       </connection>
     </loaded-nodes>
   </component>
@@ -120,7 +120,27 @@ s.shop_id = '24L';
 
 select * from tb_shop;
 select * from tb_area;
-select * from tb_shop_category;]]></console>
+select * from tb_shop_category;
+select * from o2o.tb_person_info;
+
+SELECT
+shop_id,
+owner_id,
+area_id,
+shop_category_id,
+shop_name,
+shop_desc,
+shop_addr,
+phone,
+shop_img,
+priority,
+create_time,
+last_edit_time,
+enable_status,
+advice
+FROM
+tb_shop
+where owner_id = 1;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -130,6 +150,7 @@ select * from tb_shop_category;]]></console>
     <connection id="5bffb66a-16e7-4de8-a23e-3fd967fa0636" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636" dataset="o2o.tb_person_info" active-filter-id="" />
     <filter-actions connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636" dataset="o2o.tb_area" active-filter-id="" />
     <filter-actions connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636" dataset="o2o.tb_shop" active-filter-id="" />
   </component>

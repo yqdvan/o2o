@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.InputStream;
 
 public interface ShopService{
+    ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize);
 //    ShopExecution addShop(Shop shop, File shopImg);
     ShopExecution addShop(Shop shop, InputStream shopImgIputStream,String fileName) throws ShopOperationException;
 
