@@ -10,18 +10,34 @@ import com.dyq.o2o.entity.ShopCategory;
 import com.dyq.o2o.exception.ShopOperationException;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.TestExecutionListeners;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class ShopServiceTest extends BaseTest{
     @Autowired
     private ShopService shopService;
+
+    @Test
+    public void testGetShopList(){
+        PersonInfo user = new PersonInfo();
+        user.setUserId(1L);
+        long employeeId = user.getUserId();
+        List<Shop> list = new ArrayList<Shop>();
+        Shop shopCondition = new Shop();
+        shopCondition.setOwner(user);
+        ShopExecution shopExecution = shopService.getShopList(shopCondition,0,100);
+        list = shopExecution.getShopList();
+        System.out.println("dyq ------------ :"+list.get(0).getOwner().getName());
+    }
 
     @Test
     public void testAddShop() throws FileNotFoundException {

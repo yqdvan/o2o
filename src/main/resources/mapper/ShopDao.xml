@@ -15,6 +15,7 @@
         <result column="last_edit_time" property="lastEditTime" />
         <result column="enable_status" property="enableStatus" />
         <result column="advice" property="advice" />
+<!--        <result column="owner_id" property="ownerId" />-->
 
         <association property="area" column="area_id" javaType="com.dyq.o2o.entity.Area">
             <id column="area_id" property="areaId"/>
@@ -66,14 +67,11 @@
         owner_id,
         area_id,
         shop_category_id,
-        parent_category_id,
         shop_name,
         shop_desc,
         shop_addr,
         phone,
         shop_img,
-        longitude,
-        latitude,
         priority,
         create_time,
         last_edit_time,
@@ -85,18 +83,18 @@
             <if test="shopCondition.shopId!=null">
                 and shop_id = #{shopCondition.shopId}
             </if>
-            <if
-                    test="shopCondition.shopCategory!=null
-				 and shopCondition.shopCategory.shopCategoryId!=null">
-                and shop_category_id =
-                #{shopCondition.shopCategory.shopCategoryId}
-            </if>
-            <if
-                    test="shopCondition.parentCategory!=null
-				 and shopCondition.parentCategory.shopCategoryId!=null">
-                and parent_category_id =
-                #{shopCondition.parentCategory.shopCategoryId}
-            </if>
+<!--            <if-->
+<!--                    test="shopCondition.shopCategory!=null-->
+<!--				 and shopCondition.shopCategory.shopCategoryId!=null">-->
+<!--                and shop_category_id =-->
+<!--                #{shopCondition.shopCategory.shopCategoryId}-->
+<!--            </if>-->
+<!--            <if-->
+<!--                    test="shopCondition.parentCategory!=null-->
+<!--				 and shopCondition.parentCategory.shopCategoryId!=null">-->
+<!--                and parent_category_id =-->
+<!--                #{shopCondition.parent.shopCategoryId}-->
+<!--            </if>-->
             <if
                     test="shopCondition.area!=null
 				 and shopCondition.area.areaId!=null">
@@ -125,18 +123,18 @@
             <if test="shopCondition.shopId!=null">
                 and shop_id = #{shopCondition.shopId}
             </if>
-            <if
-                    test="shopCondition.shopCategory!=null
-				 and shopCondition.shopCategory.shopCategoryId!=null">
-                and shop_category_id =
-                #{shopCondition.shopCategory.shopCategoryId}
-            </if>
-            <if
-                    test="shopCondition.parentCategory!=null
-				 and shopCondition.parentCategory.shopCategoryId!=null">
-                and parent_category_id =
-                #{shopCondition.parentCategory.shopCategoryId}
-            </if>
+<!--            <if-->
+<!--                    test="shopCondition.shopCategory!=null-->
+<!--				 and shopCondition.shopCategory.shopCategoryId!=null">-->
+<!--                and shop_category_id =-->
+<!--                #{shopCondition.shopCategory.shopCategoryId}-->
+<!--            </if>-->
+<!--            <if-->
+<!--                    test="shopCondition.parentCategory!=null-->
+<!--				 and shopCondition.parentCategory.shopCategoryId!=null">-->
+<!--                and parent_category_id =-->
+<!--                #{shopCondition.parentCategory.shopCategoryId}-->
+<!--            </if>-->
             <if
                     test="shopCondition.area!=null
 				 and shopCondition.area.areaId!=null">

@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
-        <schema name="o2o" object-types="constraint, dataset trigger, column, index, function, table, view, procedure" />
+        <schema name="o2o" object-types="column, view, function, constraint, table, dataset trigger, procedure, index" />
       </connection>
     </loaded-nodes>
   </component>
@@ -122,7 +122,7 @@ select * from tb_shop;
 select * from tb_area;
 select * from tb_shop_category;
 select * from o2o.tb_person_info;
-
+select * from tb_product_category;
 SELECT
 shop_id,
 owner_id,
@@ -140,7 +140,34 @@ enable_status,
 advice
 FROM
 tb_shop
-where owner_id = 1;]]></console>
+where owner_id = 1;
+update tb_person_info set name = 'first name' where user_id=1;
+commit;
+
+alter table tb_product_category change column product_categoryname product_category_name varchar(30);
+
+SELECT
+product_category_id,
+product_category_name,
+priority,
+create_time,
+last_edit_time,
+shop_id
+FROM
+tb_product_category
+WHERE
+shop_id = 24;
+
+insert tb_product_category 
+(product_category_name , priority , create_time,shop_id) 
+values 
+('衣服',101,CURRENT_TIMESTAMP,24);
+
+delete from tb_shop where  shop_id >= 12 and shop_id <= 19;
+
+update tb_shop set enable_status = 1 where enable_status != 1;
+
+update  tb_shop set  priority = 1000 where shop_id = 24;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

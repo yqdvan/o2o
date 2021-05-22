@@ -2,11 +2,9 @@ package com.dyq.o2o.web.shopadmin;
 
 import com.dyq.o2o.dto.ShopExecution;
 import com.dyq.o2o.dto.ShopStateEnum;
-import com.dyq.o2o.entity.Area;
-import com.dyq.o2o.entity.PersonInfo;
-import com.dyq.o2o.entity.Shop;
-import com.dyq.o2o.entity.ShopCategory;
+import com.dyq.o2o.entity.*;
 import com.dyq.o2o.service.AreaService;
+import com.dyq.o2o.service.ProductCategoryService;
 import com.dyq.o2o.service.ShopCategoryService;
 import com.dyq.o2o.service.ShopService;
 import com.dyq.o2o.util.CodeUtil;
@@ -39,6 +37,40 @@ public class ShopManagementController{
     private ShopCategoryService shopCategoryService;
     @Autowired
     private AreaService areaService;
+    @Autowired
+    private ProductCategoryService productCategoryService;
+
+
+
+    @RequestMapping(value = "/getshoplist", method = RequestMethod.GET)
+    @ResponseBody
+    private Map<String, Object> getShopList(HttpServletRequest request) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        PersonInfo user = new PersonInfo();
+        user.setUserId(1L);
+        request.getSession().setAttribute("user",user);
+        //user = (PersonInfo) request.getSession().getAttribute("user");
+        long employeeId = user.getUserId();
+
+        List<Shop> list = new ArrayList<Shop>();
+        try {
+            Shop shopCondition = new Shop();
+            shopCondition.setOwner(user);
+            ShopExecution shopExecution = shopService
+                    .getShopList(shopCondition,0,100);
+            list = shopExecution.getShopList();
+            modelMap.put("shopList", list);
+            modelMap.put("user", user);
+            modelMap.put("success", true);
+            // 列出店铺成功之后，将店铺放入session中作为权限验证依据，即该帐号只能操作它自己的店铺
+            request.getSession().setAttribute("shopList", list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelMap.put("success", false);
+            modelMap.put("errMsg", e.toString());
+        }
+        return modelMap;
+    }
 
 
     @RequestMapping(value = "/modifyshop",method = RequestMethod.POST)

@@ -21,15 +21,19 @@ $(function () {
 	function handleList(data) {
 		var html = '';
 		data.map(function (item, index) {
-			html += '<div class="row row-shop"><div class="col-40">'+ item.shopName +'</div><div class="col-40">'+ shopStatus(item.enableStatus) +'</div><div class="col-20">'+ goShop(item.enableStatus, item.shopId) +'</div></div>';
-
+			html += '<div class="row row-shop"><div class="col-40">'
+			+ item.shopName +'</div><div class="col-40">'
+			+ shopStatus(item.enableStatus)
+			+'</div><div class="col-20">'
+			+ goShop(item.enableStatus, item.shopId)
+			+'</div></div>';
 		});
 		$('.shop-wrap').html(html);
 	}
 
 	function goShop(status, id) {
 		if (status != 0 && status != -1) {
-			return '<a href="/o2o/shop/shopmanage?shopId='+ id +'">进入</a>';
+			return '<a href="/o2o/shopadmin/shopmanage?shopId='+ id +'">进入</a>';
 		} else {
 			return '';
 		}
