@@ -4,10 +4,28 @@ import java.util.Date;
 
 public class ProductCategory{
     private Long productCategoryId;
+    private String productCategoryDesc;
     private Long shopId;
     private String productCategoryName;
     private Integer priority;
     private Date createTime;
+    private Date lastEditTime;
+
+    public Date getLastEditTime() {
+        return lastEditTime;
+    }
+
+    public void setLastEditTime(Date lastEditTime) {
+        this.lastEditTime = lastEditTime;
+    }
+
+    public String getProductCategoryDesc() {
+        return productCategoryDesc;
+    }
+
+    public void setProductCategoryDesc(String productCategoryDesc) {
+        this.productCategoryDesc = productCategoryDesc;
+    }
 
     public Long getProductCategoryId() {
         return productCategoryId;
@@ -41,11 +59,11 @@ public class ProductCategory{
         this.priority = priority;
     }
 
-    public Date getcreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setcreateTime(Date createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 }

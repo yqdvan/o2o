@@ -69,16 +69,16 @@ public class ShopServiceTest extends BaseTest{
 
     }
 
-    @Test
-    public void testModifyShop() throws ShopOperationException ,FileNotFoundException {
-        Shop shop = new Shop();
-        shop.setShopId(24L);
-        shop.setShopName("水果铺子V2改");
-        shop.setPhone("1320167753");
-        File shopImg = new File("/home/yqduan/Pictures/Wallpapers/abc-123.jpg");
-
-        ShopExecution shopExecution = shopService.modifyShop(shop, new FileInputStream(shopImg), shopImg.getName());
-        System.out.println("dyq test modify shop :"+shopExecution.getShop().getShopName());
-    }
+//    @Test
+//    public void testModifyShop() throws ShopOperationException ,FileNotFoundException {
+//        Shop shop = new Shop();
+//        shop.setShopId(24L);
+//        shop.setShopName("水果铺子V2改");
+//        shop.setPhone("1320167753");
+//        File shopImg = new File("/home/yqduan/Pictures/Wallpapers/abc-123.jpg");
+//
+//        ShopExecution shopExecution = shopService.modifyShop(shop, new FileInputStream(shopImg), shopImg.getName());
+//        System.out.println("dyq test modify shop :"+shopExecution.getShop().getShopName());
+//    }
 
 }

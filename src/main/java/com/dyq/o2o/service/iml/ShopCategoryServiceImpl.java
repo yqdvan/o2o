@@ -1,6 +1,7 @@
 package com.dyq.o2o.service.iml;
 
 import com.dyq.o2o.dao.ShopCategoryDao;
+import com.dyq.o2o.dto.ProductCategoryExecution;
 import com.dyq.o2o.entity.ShopCategory;
 import com.dyq.o2o.service.ShopCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,4 +16,6 @@ public class ShopCategoryServiceImpl implements ShopCategoryService{
     public List<ShopCategory> getShopCategoryList(ShopCategory shopCategoryCondition) {
         return shopCategoryDao.queryShopCategory(shopCategoryCondition);
     }
+
+
 }

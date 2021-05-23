@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 public class ImageUtil{
@@ -20,26 +22,39 @@ public class ImageUtil{
     private static final SimpleDateFormat sDataFormat = new SimpleDateFormat("yyyyMMddHHHHmmss");
     private static final Random r = new Random();
 
-    public static String generateThumbnail(InputStream thumbnail , String fileName, String  targetAddr){
-        String realFileName = getRandomFileName();
-        String extension = getFileExtension(fileName);
+//    public static String generateThumbnail(InputStream thumbnail , String fileName, String  targetAddr){
+//        String realFileName = getRandomFileName();
+//        String extension = getFileExtension(fileName);
+//        makeDirPath(targetAddr);
+//        String relativeAddr = targetAddr + realFileName + extension;
+//        System.out.println("dyq-debug :"+"relativeAddr: " + relativeAddr);
+//        File dest = new File(PathUtil.getImgBasePath() + relativeAddr);
+//        try{
+//            System.out.println("dyq-debug :"+"basePath: " + basePath);
+//            System.out.println("dyq-debug :"+"dest: " + dest.getPath());
+//            Thumbnails.of(thumbnail).size(200,200)
+//                    .watermark(
+//                            Positions.BOTTOM_RIGHT,
+//                            ImageIO.read(new File(basePath + "logo.png")),
+//                            0.25f)
+//                    .outputQuality(0.8f).toFile(dest);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//
+//        return relativeAddr;
+//    }
+    public static String generateThumbnail(CommonsMultipartFile thumbnail, String targetAddr) {
+        String realFileName = FileUtil.getRandomFileName();
+        String extension = getFileExtension(thumbnail);
         makeDirPath(targetAddr);
         String relativeAddr = targetAddr + realFileName + extension;
-        System.out.println("dyq-debug :"+"relativeAddr: " + relativeAddr);
-        File dest = new File(PathUtil.getImgBasePath() + relativeAddr);
-        try{
-            System.out.println("dyq-debug :"+"basePath: " + basePath);
-            System.out.println("dyq-debug :"+"dest: " + dest.getPath());
-            Thumbnails.of(thumbnail).size(200,200)
-                    .watermark(
-                            Positions.BOTTOM_RIGHT,
-                            ImageIO.read(new File(basePath + "logo.png")),
-                            0.25f)
-                    .outputQuality(0.8f).toFile(dest);
-        }catch (Exception e){
-            e.printStackTrace();
+        File dest = new File(FileUtil.getImgBasePath() + relativeAddr);
+        try {
+            Thumbnails.of(thumbnail.getInputStream()).size(200, 200).outputQuality(0.25f).toFile(dest);
+        } catch (IOException e) {
+            throw new RuntimeException("创建缩略图失败：" + e.toString());
         }
-
         return relativeAddr;
     }
 
@@ -93,4 +108,29 @@ public class ImageUtil{
         }
     }
 
+    public static List<String> generateNormalImgs(List<CommonsMultipartFile> imgs, String targetAddr) {
+        int count = 0;
+        List<String> relativeAddrList = new ArrayList<String>();
+        if (imgs != null && imgs.size() > 0) {
+            makeDirPath(targetAddr);
+            for (CommonsMultipartFile img : imgs) {
+                String realFileName = FileUtil.getRandomFileName();
+                String extension = getFileExtension(img);
+                String relativeAddr = targetAddr + realFileName + count + extension;
+                File dest = new File(FileUtil.getImgBasePath() + relativeAddr);
+                count++;
+                try {
+                    Thumbnails.of(img.getInputStream()).size(600, 300).outputQuality(0.5f).toFile(dest);
+                } catch (IOException e) {
+                    throw new RuntimeException("创建图片失败：" + e.toString());
+                }
+                relativeAddrList.add(relativeAddr);
+            }
+        }
+        return relativeAddrList;
+    }
+    private static String getFileExtension(CommonsMultipartFile cFile) {
+        String originalFileName = cFile.getOriginalFilename();
+        return originalFileName.substring(originalFileName.lastIndexOf("."));
+    }
 }

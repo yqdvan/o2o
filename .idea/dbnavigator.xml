@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
-        <schema name="o2o" object-types="column, view, function, constraint, table, dataset trigger, procedure, index" />
+        <schema name="o2o" object-types="table, function, view, column" />
       </connection>
     </loaded-nodes>
   </component>
@@ -121,8 +121,21 @@ s.shop_id = '24L';
 select * from tb_shop;
 select * from tb_area;
 select * from tb_shop_category;
+
+update tb_shop_category set shop_category_name = 'food' where  shop_category_id = 1;
+
 select * from o2o.tb_person_info;
 select * from tb_product_category;
+select * from tb_product;
+select  * from tb_product_img ;
+
+alter table tb_product_category add column product_category_desc varchar(2000) default NULL;
+
+insert into tb_product (product_name,create_time , shop_id , product_category_id) values('coco',now(),24,6);
+select * from tb_product;
+show full columns from tb_product;
+
+
 SELECT
 shop_id,
 owner_id,
@@ -167,7 +180,17 @@ delete from tb_shop where  shop_id >= 12 and shop_id <= 19;
 
 update tb_shop set enable_status = 1 where enable_status != 1;
 
-update  tb_shop set  priority = 1000 where shop_id = 24;]]></console>
+update  tb_shop set  priority = 1000 where shop_id = 24;
+
+INSERT INTO
+tb_product_category
+(product_category_name,
+product_category_desc,
+priority,
+create_time,
+last_edit_time,
+shop_id)
+VALUES ('特点002','002desc',202,now(),now(),24) , ('特点003','003desc',203,now(),now(),24) , ('特点004','004desc',204,now(),now(),24);]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

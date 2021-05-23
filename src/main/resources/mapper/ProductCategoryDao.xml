@@ -22,10 +22,10 @@
 		priority DESC
 	</select>
 	<insert id="batchInsertProductCategory" parameterType="java.util.List">
-		<selectKey resultType="Long" keyProperty="product_category_id"
-			order="AFTER">
-			SELECT LAST_INSERT_ID()
-		</selectKey>
+<!--		<selectKey resultType="Long" keyProperty="product_category_id"-->
+<!--			order="AFTER">-->
+<!--			SELECT LAST_INSERT_ID()-->
+<!--		</selectKey>-->
 		INSERT INTO
 		tb_product_category(product_category_name,product_category_desc,priority,
 		create_time,last_edit_time,shop_id)
