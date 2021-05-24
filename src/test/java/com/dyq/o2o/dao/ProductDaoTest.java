@@ -91,7 +91,7 @@ public class ProductDaoTest extends BaseTest {
 		count = productDao.queryProductCount(product);
 		assertEquals(3, count);
 		Shop shop = new Shop();
-		shop.setShopId(2L);
+		shop.setShopId(23L);
 		product.setShop(shop);
 		productList = productDao.queryProductList(product, 0, 3);
 		assertEquals(1, productList.size());

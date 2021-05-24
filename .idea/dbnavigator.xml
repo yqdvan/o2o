@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="5bffb66a-16e7-4de8-a23e-3fd967fa0636">
-        <schema name="o2o" object-types="table, function, view, column" />
+        <schema name="o2o" object-types="table, view, function, column" />
       </connection>
     </loaded-nodes>
   </component>
@@ -127,6 +127,7 @@ update tb_shop_category set shop_category_name = 'food' where  shop_category_id 
 select * from o2o.tb_person_info;
 select * from tb_product_category;
 select * from tb_product;
+alter table tb_product add column point Integer(100) default 0;
 select  * from tb_product_img ;
 
 alter table tb_product_category add column product_category_desc varchar(2000) default NULL;

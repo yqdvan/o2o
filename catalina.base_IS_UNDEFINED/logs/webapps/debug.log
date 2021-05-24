@@ -1,41 +1,59 @@
-2021-05-23 11:38:20.869[main]DEBUGc.d.o.dao.ProductCategoryDao.queryProductCategory - ==>  Preparing: SELECT product_category_id, product_category_name, priority, create_time, last_edit_time, shop_id FROM tb_product_category WHERE shop_id = ? order by priority DESC 
-2021-05-23 11:38:20.898[main]DEBUGc.d.o.dao.ProductCategoryDao.queryProductCategory - ==> Parameters: 24(Long)
-2021-05-23 11:38:20.918[main]DEBUGc.d.o.dao.ProductCategoryDao.queryProductCategory - <==      Total: 5
-2021-05-23 11:38:20.924[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: DELETE FROM tb_product_category WHERE product_category_id = ? AND shop_id=? 
-2021-05-23 11:38:20.925[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 17(Long), 24(Long)
-2021-05-23 11:38:20.928[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
-2021-05-23 11:38:20.929[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: DELETE FROM tb_product_category WHERE product_category_id = ? AND shop_id=? 
-2021-05-23 11:38:20.929[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 16(Long), 24(Long)
-2021-05-23 11:38:20.932[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
-2021-05-23 11:43:33.516[main]DEBUGc.d.o.dao.ProductCategoryDao.queryProductCategory - ==>  Preparing: SELECT product_category_id, product_category_name, priority, create_time, last_edit_time, shop_id FROM tb_product_category WHERE shop_id = ? order by priority DESC 
-2021-05-23 11:43:33.551[main]DEBUGc.d.o.dao.ProductCategoryDao.queryProductCategory - ==> Parameters: 24(Long)
-2021-05-23 11:43:33.575[main]DEBUGc.d.o.dao.ProductCategoryDao.queryProductCategory - <==      Total: 3
-2021-05-23 11:43:33.582[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: DELETE FROM tb_product_category WHERE product_category_id = ? AND shop_id=? 
-2021-05-23 11:43:33.582[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 10(Long), 24(Long)
-2021-05-23 11:43:33.586[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
-2021-05-23 11:43:33.587[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: DELETE FROM tb_product_category WHERE product_category_id = ? AND shop_id=? 
-2021-05-23 11:43:33.587[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 11(Long), 24(Long)
-2021-05-23 11:43:33.590[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
-2021-05-23 16:34:05.589[main]DEBUGc.d.o.dao.ProductCategoryDao.queryProductCategory - ==>  Preparing: SELECT product_category_id, product_category_name, priority, create_time, last_edit_time, shop_id FROM tb_product_category WHERE shop_id = ? order by priority DESC 
-2021-05-23 16:34:05.635[main]DEBUGc.d.o.dao.ProductCategoryDao.queryProductCategory - ==> Parameters: 24(Long)
-2021-05-23 16:34:05.655[main]DEBUGc.d.o.dao.ProductCategoryDao.queryProductCategory - <==      Total: 4
-2021-05-23 16:34:05.662[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: DELETE FROM tb_product_category WHERE product_category_id = ? AND shop_id=? 
-2021-05-23 16:34:05.662[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 1(Long), 24(Long)
-2021-05-23 16:34:05.666[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
-2021-05-23 16:34:05.666[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==>  Preparing: DELETE FROM tb_product_category WHERE product_category_id = ? AND shop_id=? 
-2021-05-23 16:34:05.666[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - ==> Parameters: 20(Long), 24(Long)
-2021-05-23 16:34:05.670[main]DEBUGc.d.o.dao.ProductCategoryDao.deleteProductCategory - <==    Updates: 1
-2021-05-23 21:12:04.944[main]DEBUGc.dyq.o2o.dao.ProductImgDao.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
-2021-05-23 21:12:04.989[main]DEBUGc.dyq.o2o.dao.ProductImgDao.batchInsertProductImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2021-05-23 21:12:04.545(Timestamp), 1(Long), 图片2(String), null, 1(Integer), 2021-05-23 21:12:04.545(Timestamp), 1(Long)
-2021-05-23 21:13:35.325[main]DEBUGc.dyq.o2o.dao.ProductImgDao.batchInsertProductImg - ==>  Preparing: INSERT INTO tb_product_img(img_addr,img_desc,priority, create_time,product_id) VALUES ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
-2021-05-23 21:13:35.364[main]DEBUGc.dyq.o2o.dao.ProductImgDao.batchInsertProductImg - ==> Parameters: 图片1(String), 测试图片1(String), 1(Integer), 2021-05-23 21:13:34.908(Timestamp), 5(Long), 图片2(String), null, 1(Integer), 2021-05-23 21:13:34.908(Timestamp), 5(Long)
-2021-05-23 21:13:35.368[main]DEBUGc.dyq.o2o.dao.ProductImgDao.batchInsertProductImg - <==    Updates: 2
-2021-05-23 21:13:35.369[main]DEBUGc.d.o.d.P.batchInsertProductImg!selectKey - ==>  Preparing: SELECT LAST_INSERT_ID() 
-2021-05-23 21:13:35.369[main]DEBUGc.d.o.d.P.batchInsertProductImg!selectKey - ==> Parameters: 
-2021-05-23 21:13:35.391[main]DEBUGc.d.o.d.P.batchInsertProductImg!selectKey - <==      Total: 1
-2021-05-23 21:23:39.606[main]DEBUGc.d.o.d.ProductImgDao.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
-2021-05-23 21:23:39.635[main]DEBUGc.d.o.d.ProductImgDao.deleteProductImgByProductId - ==> Parameters: 1(Long)
-2021-05-23 21:23:39.636[main]DEBUGc.d.o.d.ProductImgDao.deleteProductImgByProductId - <==    Updates: 0
-2021-05-23 21:24:11.480[main]DEBUGc.d.o.d.ProductImgDao.deleteProductImgByProductId - ==>  Preparing: DELETE FROM tb_product_img WHERE product_id = ? 
-2021-05-23 21:24:11.511[main]DEBUGc.d.o.d.ProductImgDao.deleteProductImgByProductId - ==> Parameters: 5(Long)
-2021-05-23 21:24:11.515[main]DEBUGc.d.o.d.ProductImgDao.deleteProductImgByProductId - <==    Updates: 2
+2021-05-24 21:41:56.674[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - ==>  Preparing: INSERT INTO tb_product(product_name,product_desc,img_addr, normal_price,promotion_price,priority,create_time, last_edit_time,enable_status,point,product_category_id, shop_id) VALUES (?,?,?, ?,?,?,?, ?,?,?,?, ?) 
+2021-05-24 21:44:01.335[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - ==>  Preparing: INSERT INTO tb_product(product_name,product_desc,img_addr, normal_price,promotion_price,priority,create_time, last_edit_time,enable_status,point,product_category_id, shop_id) VALUES (?,?,?, ?,?,?,?, ?,?,?,?, ?) 
+2021-05-24 21:44:01.378[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - ==> Parameters: 测试1(String), 测试Desc1(String), test1(String), null, null, 0(Integer), 2021-05-24 21:44:00.953(Timestamp), 2021-05-24 21:44:00.953(Timestamp), 1(Integer), null, 6(Long), 23(Long)
+2021-05-24 21:46:31.156[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - ==>  Preparing: INSERT INTO tb_product(product_name,product_desc,img_addr, normal_price,promotion_price,priority,create_time, last_edit_time,enable_status,point,product_category_id, shop_id) VALUES (?,?,?, ?,?,?,?, ?,?,?,?, ?) 
+2021-05-24 21:46:31.204[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - ==> Parameters: 测试1(String), 测试Desc1(String), test1(String), null, null, 0(Integer), 2021-05-24 21:46:30.765(Timestamp), 2021-05-24 21:46:30.765(Timestamp), 1(Integer), null, 6(Long), 23(Long)
+2021-05-24 21:46:31.213[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - <==    Updates: 1
+2021-05-24 21:46:31.230[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - ==>  Preparing: INSERT INTO tb_product(product_name,product_desc,img_addr, normal_price,promotion_price,priority,create_time, last_edit_time,enable_status,point,product_category_id, shop_id) VALUES (?,?,?, ?,?,?,?, ?,?,?,?, ?) 
+2021-05-24 21:46:31.231[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - ==> Parameters: 测试2(String), 测试Desc2(String), test2(String), null, null, 0(Integer), 2021-05-24 21:46:30.765(Timestamp), 2021-05-24 21:46:30.765(Timestamp), 0(Integer), null, 9(Long), 23(Long)
+2021-05-24 21:46:31.235[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - <==    Updates: 1
+2021-05-24 21:46:31.236[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - ==>  Preparing: INSERT INTO tb_product(product_name,product_desc,img_addr, normal_price,promotion_price,priority,create_time, last_edit_time,enable_status,point,product_category_id, shop_id) VALUES (?,?,?, ?,?,?,?, ?,?,?,?, ?) 
+2021-05-24 21:46:31.237[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - ==> Parameters: 测试3(String), 测试Desc3(String), test3(String), null, null, 0(Integer), 2021-05-24 21:46:30.765(Timestamp), 2021-05-24 21:46:30.765(Timestamp), 1(Integer), null, 14(Long), 23(Long)
+2021-05-24 21:46:31.241[main]DEBUGcom.dyq.o2o.dao.ProductDao.insertProduct - <==    Updates: 1
+2021-05-24 21:46:40.045[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product ORDER BY priority DESC LIMIT ?,?; 
+2021-05-24 21:46:40.076[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==> Parameters: 0(Integer), 3(Integer)
+2021-05-24 21:48:35.072[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product ORDER BY priority DESC LIMIT ?,?; 
+2021-05-24 21:48:35.102[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==> Parameters: 0(Integer), 3(Integer)
+2021-05-24 21:48:35.125[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - <==      Total: 3
+2021-05-24 21:48:35.140[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==>  Preparing: SELECT count(1) FROM tb_product 
+2021-05-24 21:48:35.140[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==> Parameters: 
+2021-05-24 21:48:35.142[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - <==      Total: 1
+2021-05-24 21:48:35.144[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product WHERE product_name like '%测试%' ORDER BY priority DESC LIMIT ?,?; 
+2021-05-24 21:48:35.144[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==> Parameters: 0(Integer), 3(Integer)
+2021-05-24 21:48:35.149[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - <==      Total: 3
+2021-05-24 21:48:35.150[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==>  Preparing: SELECT count(1) FROM tb_product WHERE product_name like '%测试%' 
+2021-05-24 21:48:35.151[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==> Parameters: 
+2021-05-24 21:48:35.151[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - <==      Total: 1
+2021-05-24 21:48:35.155[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product WHERE shop_id = ? and product_name like '%测试%' ORDER BY priority DESC LIMIT ?,?; 
+2021-05-24 21:48:35.155[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==> Parameters: 2(Long), 0(Integer), 3(Integer)
+2021-05-24 21:48:35.156[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - <==      Total: 0
+2021-05-24 21:49:07.179[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product ORDER BY priority DESC LIMIT ?,?; 
+2021-05-24 21:49:07.211[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==> Parameters: 0(Integer), 3(Integer)
+2021-05-24 21:49:07.235[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - <==      Total: 3
+2021-05-24 21:49:07.241[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==>  Preparing: SELECT count(1) FROM tb_product 
+2021-05-24 21:49:07.241[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==> Parameters: 
+2021-05-24 21:49:07.243[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - <==      Total: 1
+2021-05-24 21:49:07.244[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product WHERE product_name like '%测试%' ORDER BY priority DESC LIMIT ?,?; 
+2021-05-24 21:49:07.244[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==> Parameters: 0(Integer), 3(Integer)
+2021-05-24 21:49:07.248[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - <==      Total: 3
+2021-05-24 21:49:07.249[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==>  Preparing: SELECT count(1) FROM tb_product WHERE product_name like '%测试%' 
+2021-05-24 21:49:07.249[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==> Parameters: 
+2021-05-24 21:49:07.250[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - <==      Total: 1
+2021-05-24 21:49:07.253[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product WHERE shop_id = ? and product_name like '%测试%' ORDER BY priority DESC LIMIT ?,?; 
+2021-05-24 21:49:07.254[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==> Parameters: 24(Long), 0(Integer), 3(Integer)
+2021-05-24 21:49:07.255[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - <==      Total: 0
+2021-05-24 21:49:25.126[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product ORDER BY priority DESC LIMIT ?,?; 
+2021-05-24 21:49:25.161[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==> Parameters: 0(Integer), 3(Integer)
+2021-05-24 21:49:25.187[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - <==      Total: 3
+2021-05-24 21:49:25.203[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==>  Preparing: SELECT count(1) FROM tb_product 
+2021-05-24 21:49:25.203[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==> Parameters: 
+2021-05-24 21:49:25.205[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - <==      Total: 1
+2021-05-24 21:49:25.206[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product WHERE product_name like '%测试%' ORDER BY priority DESC LIMIT ?,?; 
+2021-05-24 21:49:25.207[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==> Parameters: 0(Integer), 3(Integer)
+2021-05-24 21:49:25.211[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - <==      Total: 3
+2021-05-24 21:49:25.212[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==>  Preparing: SELECT count(1) FROM tb_product WHERE product_name like '%测试%' 
+2021-05-24 21:49:25.212[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - ==> Parameters: 
+2021-05-24 21:49:25.213[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductCount - <==      Total: 1
+2021-05-24 21:49:25.216[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==>  Preparing: SELECT product_id, product_name, product_desc, img_addr, normal_price, promotion_price, priority, create_time, last_edit_time, enable_status, product_category_id, shop_id FROM tb_product WHERE shop_id = ? and product_name like '%测试%' ORDER BY priority DESC LIMIT ?,?; 
+2021-05-24 21:49:25.216[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - ==> Parameters: 23(Long), 0(Integer), 3(Integer)
+2021-05-24 21:49:25.220[main]DEBUGcom.dyq.o2o.dao.ProductDao.queryProductList - <==      Total: 3

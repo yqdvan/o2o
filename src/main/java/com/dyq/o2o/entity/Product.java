@@ -18,6 +18,15 @@ public class Product{
     private List<ProductImg> productImgsList;
     private ProductCategory productCategory;
     private Shop shop;
+    private Integer point;
+
+    public Integer getPoint() {
+        return point;
+    }
+
+    public void setPoint(Integer point) {
+        this.point = point;
+    }
 
     public String getNormalPrice() {
         return normalPrice;

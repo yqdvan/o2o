@@ -41,7 +41,7 @@
 			<result column="enable_status" property="enableStatus" />
 			<result column="advice" property="advice" />
 		</association>
-		<collection property="productImgList" column="product_id"
+		<collection property="productImgsList" column="product_id"
 			ofType="com.dyq.o2o.entity.ProductImg">
 			<id column="product_img_id" property="productImgId" />
 			<result column="img_addr" property="imgAddr" />
@@ -63,7 +63,7 @@
 		create_time,
 		last_edit_time,
 		enable_status,
-		point,
+<!--		point,-->
 		product_category_id,
 		shop_id
 		FROM
